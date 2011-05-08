@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Budget:</b>
+  <%= @budgetitem.budget_id %>
+</p>
+
+<p>
+  <b>Subledger:</b>
+  <%= @budgetitem.subledger_id %>
+</p>
+
+<p>
+  <b>Budgeted pct:</b>
+  <%= @budgetitem.budgeted_pct %>
+</p>
+
+<p>
+  <b>Budgeted amt:</b>
+  <%= @budgetitem.budgeted_amt %>
+</p>
+
+<p>
+  <b>Committed amt:</b>
+  <%= @budgetitem.committed_amt %>
+</p>
+
+<p>
+  <b>Billed amt:</b>
+  <%= @budgetitem.billed_amt %>
+</p>
+
+<p>
+  <b>Paid amt:</b>
+  <%= @budgetitem.paid_amt %>
+</p>
+
+
+<%= link_to 'Edit', edit_budgetitem_path(@budgetitem) %> |
+<%= link_to 'Back', budgetitems_path %>

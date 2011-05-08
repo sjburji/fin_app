@@ -1,0 +1,47 @@
+<h1>Listing franchisees</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>Tin</th>
+    <th>Street1</th>
+    <th>Street2</th>
+    <th>Pincode</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Landline</th>
+    <th>Mobile</th>
+    <th>Facsimile</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @franchisees.each do |franchisee| %>
+  <tr>
+    <td><%= franchisee.name %></td>
+    <td><%= franchisee.owner %></td>
+    <td><%= franchisee.tin %></td>
+    <td><%= franchisee.street1 %></td>
+    <td><%= franchisee.street2 %></td>
+    <td><%= franchisee.pincode %></td>
+    <td><%= franchisee.city %></td>
+    <td><%= franchisee.state %></td>
+    <td><%= franchisee.country %></td>
+    <td><%= franchisee.landline %></td>
+    <td><%= franchisee.mobile %></td>
+    <td><%= franchisee.facsimile %></td>
+    <td><%= franchisee.email %></td>
+    <td><%= link_to 'Show', franchisee %></td>
+    <td><%= link_to 'Edit', edit_franchisee_path(franchisee) %></td>
+    <td><%= link_to 'Destroy', franchisee, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Franchisee', new_franchisee_path %>

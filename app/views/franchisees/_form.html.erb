@@ -1,0 +1,74 @@
+<%= form_for(@franchisee) do |f| %>
+  <% if @franchisee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@franchisee.errors.count, "error") %> prohibited this franchisee from being saved:</h2>
+
+      <ul>
+      <% @franchisee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :created_at, :value => Time.zone.today %>
+  <%= f.hidden_field :updated_at, :value => Time.zone.today %>
+  <%= f.hidden_field :created_by, :value => current_user.id.to_s %>
+  <%= f.hidden_field :modified_by, :value => current_user.id.to_s %>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :owner %><br />
+    <%= f.text_field :owner %>
+  </div>
+  <div class="field">
+    <%= f.label :tin %><br />
+    <%= f.text_field :tin %>
+  </div>
+  <div class="field">
+    <%= f.label :street1 %><br />
+    <%= f.text_field :street1 %>
+  </div>
+  <div class="field">
+    <%= f.label :street2 %><br />
+    <%= f.text_field :street2 %>
+  </div>
+  <div class="field">
+    <%= f.label :pincode %><br />
+    <%= f.text_field :pincode %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :landline %><br />
+    <%= f.text_field :landline %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :facsimile %><br />
+    <%= f.text_field :facsimile %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

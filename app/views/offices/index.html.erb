@@ -1,0 +1,40 @@
+<h3>Listing Offices</h3>
+
+<div class="activity_links" style="float: right">
+  <%= link_to 'Add New Office?', new_office_path %>
+</div>
+<br/><hr/>
+
+<% @offices.each do |office| %>
+<div>
+    <span class='span-2'><b>Name</b></span> <%= office.name %><br/>
+    <span class='span-2'><b>Location</b></span> <%= office.street1 %>, <%= office.street2 %>,
+        <%= office.city %>,
+        <%= office.state %>, <%= office.country %> -
+        <%= office.pincode %><br/>
+
+    <span class='span-2'><b>Phone</b></span>(L) : <%= office.landline %>, (M) : <%= office.mobile %><br/>
+    <span class='span-2'><b>Facsimile</b></span> <%= office.facsimile %><br/>
+    <span class='span-2'><b>Email</b></span> <%= office.email %><br/>
+
+    <div id="offices_legalentities_remove" class="activity_links" style="float: right; padding-left: 5px">
+      <%= link_to 'Hide Details', office, :id => 'offices_legalentities_remove_link_' + office.id.to_s,
+        :office_id => office.id, :disabled => 'disabled' %>
+    </div>
+    
+    <div id="offices_legalentities" class="activity_links" style="float: right; padding-left: 5px">
+      <%= link_to 'Show Details', office, :id => 'offices_legalentities_link_' + office.id.to_s,
+        :office_id => office.id %>
+    </div>
+
+    <br/>
+    <div id='<%= "offices_legalentities_div_#{office.id}" %>' style="display: none;">
+      <%= render :partial => 'legalentities/le_office',
+        :locals => { :legalentity => Legalentity.find_all_by_office_id(office.id) },
+        :layout => false %>
+    </div>
+    <hr/>
+</div>
+
+<% end %>
+

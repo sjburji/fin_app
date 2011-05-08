@@ -1,0 +1,29 @@
+<%= form_for(@subledger) do |f| %>
+  <% if @subledger.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subledger.errors.count, "error") %> prohibited this subledger from being saved:</h2>
+
+      <ul>
+      <% @subledger.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :ledger_id %><br />
+    <%= f.collection_select(:ledger_id, Ledger.all, :id, :name, {:include_blank => 'Select Ledger'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

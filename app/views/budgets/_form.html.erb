@@ -1,0 +1,53 @@
+<%= form_for(@budget) do |f| %>
+  <% if @budget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+
+      <ul>
+      <% @budget.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :month %>
+    <%= select_month(Date.today, :prefix=> 'budget', :field_name => :month) %>
+    <%= f.label :year %>
+    <%= select_year(Date.today, :start_year => 2011, :prefix=> 'budget', :field_name => :year) %>    
+  </div>
+  <br/>
+  
+  <div class="field">
+    <%= f.label :marketentity_id %><br />
+    <%= f.collection_select(:marketentity_id, Marketentity.all, :id, :name, {:include_blank => 'Select Market Entity'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :businessunit_id %><br />
+    <%= f.collection_select(:businessunit_id, Businessunit.all, :id, :name, {:include_blank => 'Select Business Unit'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :ledger_id %><br />
+    <%= f.collection_select(:ledger_id, Ledger.all, :id, :name, {:include_blank => 'Select Ledger'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :budgeted_amt %><br />
+    <%= f.text_field :budgeted_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :committed_amt %><br />
+    <%= f.text_field :committed_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :billed_amt %><br />
+    <%= f.text_field :billed_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :paid_amt %><br />
+    <%= f.text_field :paid_amt %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

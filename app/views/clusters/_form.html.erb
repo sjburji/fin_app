@@ -1,0 +1,44 @@
+<%= form_for(@cluster) do |f| %>
+  <% if @cluster.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cluster.errors.count, "error") %> prohibited this cluster from being saved:</h2>
+
+      <ul>
+      <% @cluster.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :created_at, :value => Time.zone.today %>
+  <%= f.hidden_field :updated_at, :value => Time.zone.today %>
+  <%= f.hidden_field :created_by, :value => current_user.id.to_s %>
+  <%= f.hidden_field :modified_by, :value => current_user.id.to_s %>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :geography_id %><br />
+    <%= f.collection_select(:geography_id, Geography.all, :id, :name, {:include_blank => 'Select Geography'}) %>
+  </div>
+
+
+  <hr/>
+  <div class="span-19">
+    <b>Check Store(s) linked to this cluster : </b><br/><br/>
+    <% for store in Store.find(:all, :order => 'id') %>
+    <div class="span-6">
+       <span class="span-1"><%= check_box_tag "cluster[store_ids][]", store.id, @cluster.stores.include?(store) %></span>
+       <span class="span-4"><%= store.name %></span>
+    </div>
+   <% end %>
+  </div>
+  <hr/>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

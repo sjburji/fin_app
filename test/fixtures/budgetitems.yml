@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  budget_id: 1
+  subledger_id: 1
+  budgeted_pct: 1.5
+  budgeted_amt: 1.5
+  committed_amt: 1.5
+  billed_amt: 1.5
+  paid_amt: 1.5
+
+two:
+  budget_id: 1
+  subledger_id: 1
+  budgeted_pct: 1.5
+  budgeted_amt: 1.5
+  committed_amt: 1.5
+  billed_amt: 1.5
+  paid_amt: 1.5

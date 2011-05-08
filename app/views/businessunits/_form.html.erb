@@ -1,0 +1,30 @@
+<%= form_for(@businessunit) do |f| %>
+  <% if @businessunit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@businessunit.errors.count, "error") %> prohibited this businessunit from being saved:</h2>
+
+      <ul>
+      <% @businessunit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :created_at, :value => Time.zone.today %>
+  <%= f.hidden_field :updated_at, :value => Time.zone.today %>
+  <%= f.hidden_field :created_by, :value => current_user.id.to_s %>
+  <%= f.hidden_field :modified_by, :value => current_user.id.to_s %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :marketentity_id %><br />
+    <%= f.collection_select(:marketentity_id, Marketentity.all, :id, :name, {:include_blank => 'Select Market Entity'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

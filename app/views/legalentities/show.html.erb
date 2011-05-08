@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @legalentity.name %>
+</p>
+
+<p>
+  <b>Tin:</b>
+  <%= @legalentity.tin %>
+</p>
+
+<p>
+  <b>Office:</b>
+  <%= @legalentity.office_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_legalentity_path(@legalentity) %> |
+<%= link_to 'Back', legalentities_path %>

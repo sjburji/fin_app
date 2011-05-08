@@ -1,0 +1,46 @@
+<%= form_for(@budgetitem) do |f| %>
+  <% if @budgetitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@budgetitem.errors.count, "error") %> prohibited this budgetitem from being saved:</h2>
+
+      <ul>
+      <% @budgetitem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :budget_id %><br />
+    <%= f.text_field :budget_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subledger_id %><br />
+    <%= f.collection_select(:subledger_id, Subledger.all, :id, :name,
+      {:include_blank => 'Select Sub Ledger'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :budgeted_pct %><br />
+    <%= f.text_field :budgeted_pct %>
+  </div>
+  <div class="field">
+    <%= f.label :budgeted_amt %><br />
+    <%= f.text_field :budgeted_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :committed_amt %><br />
+    <%= f.text_field :committed_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :billed_amt %><br />
+    <%= f.text_field :billed_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :paid_amt %><br />
+    <%= f.text_field :paid_amt %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

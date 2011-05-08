@@ -10,6 +10,7 @@ gem 'sunspot_rails', '1.2.rc4'
 gem "will_paginate", "~> 3.0.pre2"
 gem "transitions", :require => ["transitions", "active_record/transitions"]
 gem 'jquery-rails'
+gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

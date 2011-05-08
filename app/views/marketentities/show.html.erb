@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @marketentity.name %>
+</p>
+
+<p>
+  <b>Legalentity:</b>
+  <%= @marketentity.legalentity_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_marketentity_path(@marketentity) %> |
+<%= link_to 'Back', marketentities_path %>

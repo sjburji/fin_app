@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/adamcooper/vestal_versions
+  revision: 6273df533f85014062e346cb1807b0531a809ee2
+  specs:
+    vestal_versions (1.2.2)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -159,4 +167,5 @@ DEPENDENCIES
   ruby-oci8
   sunspot_rails (= 1.2.rc4)
   transitions
+  vestal_versions!
   will_paginate (~> 3.0.pre2)

@@ -1,4 +1,32 @@
 FinApp::Application.routes.draw do
+  resources :suppliercontracts
+
+  resources :suppliers
+
+  resources :budgetitems
+
+  resources :budgets
+
+  resources :subledgers
+
+  resources :ledgers
+
+  resources :franchisees
+
+  resources :stores
+
+  resources :clusters
+
+  resources :geographies
+
+  resources :businessunits
+
+  resources :marketentities
+
+  resources :legalentities
+
+  resources :offices
+
   match '/dashboard' => 'dashboard#show'
 
   match '/auth/:provider/callback' => 'authentications#create'
@@ -6,6 +34,7 @@ FinApp::Application.routes.draw do
 
   match '/auth/failure' => 'Dashboard#show'
   resources :authentications, :branches
+
 
   # after all the routing
   root :to => "Dashboard#show"

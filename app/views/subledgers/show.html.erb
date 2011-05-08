@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @subledger.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @subledger.code %>
+</p>
+
+<p>
+  <b>Ledger:</b>
+  <%= @subledger.ledger_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_subledger_path(@subledger) %> |
+<%= link_to 'Back', subledgers_path %>

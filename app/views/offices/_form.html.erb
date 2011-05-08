@@ -1,0 +1,60 @@
+<%= form_for(@office) do |f| %>
+  <% if @office.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@office.errors.count, "error") %> prohibited this office from being saved:</h2>
+
+      <ul>
+      <% @office.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :created_at, :value => Time.zone.today %>
+  <%= f.hidden_field :updated_at, :value => Time.zone.today %>
+  <%= f.hidden_field :created_by, :value => current_user.id.to_s %>
+  <%= f.hidden_field :modified_by, :value => current_user.id.to_s %>
+  
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => 'title simple', :maxlength => 100, :style => 'width:700px' %>
+  </div>
+
+  <div>
+    <%= f.label :street1 %>
+    <%= f.text_field :street1, :class => 'title simple', :maxlength => 100, :style => 'width:250px' %>
+    <%= f.label :street2 %>
+    <%= f.text_field :street2, :class => 'title simple', :maxlength => 100, :style => 'width:250px' %>
+    <%= f.label :pincode %>
+    <%= f.text_field :pincode, :class => 'title simple', :maxlength => 10, :style => 'width:100px' %>
+  </div>
+
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city, :class => 'title simple', :maxlength => 100, :style => 'width:250px' %>
+    <%= f.label :state %>
+    <%= f.text_field :state, :class => 'title simple', :maxlength => 100, :style => 'width:250px' %>
+    <%= f.label :country %>
+    <%= f.text_field :country, :class => 'title simple', :maxlength => 100, :style => 'width:250px' %>
+  </div>
+
+  <div>
+    <%= f.label :landline %>
+    <%= f.text_field :landline, :class => 'title simple', :maxlength => 10, :style => 'width:250px' %>
+    <%= f.label :mobile %>
+    <%= f.text_field :mobile, :class => 'title simple', :maxlength => 10, :style => 'width:250px' %>
+  </div>
+
+  <div>
+    <%= f.label :facsimile %>
+    <%= f.text_field :facsimile, :class => 'title simple', :maxlength => 100, :style => 'width:250px' %>
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => 'title simple', :maxlength => 50, :style => 'width:250px' %>
+  </div>
+
+  <div class="actions">
+    <br/>
+    <%= f.submit %>
+  </div>
+<% end %>

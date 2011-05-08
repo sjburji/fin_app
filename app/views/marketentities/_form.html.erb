@@ -1,0 +1,30 @@
+<%= form_for(@marketentity) do |f| %>
+  <% if @marketentity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@marketentity.errors.count, "error") %> prohibited this marketentity from being saved:</h2>
+
+      <ul>
+      <% @marketentity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :created_at, :value => Time.zone.today %>
+  <%= f.hidden_field :updated_at, :value => Time.zone.today %>
+  <%= f.hidden_field :created_by, :value => current_user.id.to_s %>
+  <%= f.hidden_field :modified_by, :value => current_user.id.to_s %>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :legalentity_id %><br />
+    <%= f.collection_select(:legalentity_id, Legalentity.all, :id, :name, {:include_blank => 'Select Legal Entity'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

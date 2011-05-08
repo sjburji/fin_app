@@ -1,0 +1,47 @@
+<h1>Listing suppliers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Contact1</th>
+    <th>Contact2</th>
+    <th>Street1</th>
+    <th>Street2</th>
+    <th>Pincode</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Landline</th>
+    <th>Mobile</th>
+    <th>Facsimile</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @suppliers.each do |supplier| %>
+  <tr>
+    <td><%= supplier.name %></td>
+    <td><%= supplier.contact1 %></td>
+    <td><%= supplier.contact2 %></td>
+    <td><%= supplier.street1 %></td>
+    <td><%= supplier.street2 %></td>
+    <td><%= supplier.pincode %></td>
+    <td><%= supplier.city %></td>
+    <td><%= supplier.state %></td>
+    <td><%= supplier.country %></td>
+    <td><%= supplier.landline %></td>
+    <td><%= supplier.mobile %></td>
+    <td><%= supplier.facsimile %></td>
+    <td><%= supplier.email %></td>
+    <td><%= link_to 'Show', supplier %></td>
+    <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
+    <td><%= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Supplier', new_supplier_path %>

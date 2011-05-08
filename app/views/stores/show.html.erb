@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @store.name %>
+</p>
+
+<p>
+  <b>Franchisee:</b>
+  <%= @store.franchisee_id %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @store.parent_id %>
+</p>
+
+
+<p>
+  <b>Street1:</b>
+  <%= @store.street1 %>
+</p>
+
+<p>
+  <b>Street2:</b>
+  <%= @store.street2 %>
+</p>
+
+<p>
+  <b>Pincode:</b>
+  <%= @store.pincode %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @store.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @store.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @store.country %>
+</p>
+
+<p>
+  <b>Landline:</b>
+  <%= @store.landline %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @store.mobile %>
+</p>
+
+<p>
+  <b>Facsimile:</b>
+  <%= @store.facsimile %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @store.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %>

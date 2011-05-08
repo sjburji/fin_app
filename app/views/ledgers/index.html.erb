@@ -1,0 +1,27 @@
+<h1>Listing ledgers</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Code</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ledgers.each do |ledger| %>
+  <tr>
+    <td><%= ledger.category %></td>
+    <td><%= ledger.code %></td>
+    <td><%= ledger.name %></td>
+    <td><%= link_to 'Show', ledger %></td>
+    <td><%= link_to 'Edit', edit_ledger_path(ledger) %></td>
+    <td><%= link_to 'Destroy', ledger, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ledger', new_ledger_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  supplier_id: 1
+  effective_date: 2011-05-08
+  discount: 1.5
+  creditperiod: 1
+
+two:
+  supplier_id: 1
+  effective_date: 2011-05-08
+  discount: 1.5
+  creditperiod: 1

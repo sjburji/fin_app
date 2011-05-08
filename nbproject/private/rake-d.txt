@@ -69,6 +69,11 @@ rails_env=
 routes=Print out all defined routes in match order, with names. Target specific controller with CONTROLLER=x.
 secret=Generate a cryptographically secure secret key (this is typically used to generate a secret for cookie sessions).
 stats=Report code statistics (KLOCs, etc) from the application
+sunspot\:reindex[batch_size,models]=Reindex all solr models that are located in your application's models directory.
+sunspot\:solr\:reindex=
+sunspot\:solr\:run=Run the Solr instance in the foreground
+sunspot\:solr\:start=Start the Solr instance
+sunspot\:solr\:stop=Stop the Solr instance
 test=Runs test:units, test:functionals, test:integration together (also available: test:benchmark, test:profile, test:plugins)
 test\:benchmark=
 test\:functionals=

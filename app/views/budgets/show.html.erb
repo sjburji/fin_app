@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Year:</b>
+  <%= @budget.year %>
+</p>
+
+<p>
+  <b>Month:</b>
+  <%= @budget.month %>
+</p>
+
+<p>
+  <b>Marketentity:</b>
+  <%= @budget.marketentity_id %>
+</p>
+
+<p>
+  <b>Businessunit:</b>
+  <%= @budget.businessunit_id %>
+</p>
+
+<p>
+  <b>Ledger:</b>
+  <%= @budget.ledger_id %>
+</p>
+
+<p>
+  <b>Budgeted amt:</b>
+  <%= @budget.budgeted_amt %>
+</p>
+
+<p>
+  <b>Committed amt:</b>
+  <%= @budget.committed_amt %>
+</p>
+
+<p>
+  <b>Billed amt:</b>
+  <%= @budget.billed_amt %>
+</p>
+
+<p>
+  <b>Paid amt:</b>
+  <%= @budget.paid_amt %>
+</p>
+
+
+<%= link_to 'Edit', edit_budget_path(@budget) %> |
+<%= link_to 'Back', budgets_path %>

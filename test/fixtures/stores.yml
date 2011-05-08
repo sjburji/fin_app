@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  franchisee_id: 1
+  parent_id: 1
+  category: MyString
+  street1: MyString
+  street2: MyString
+  pincode: 1
+  city: MyString
+  state: MyString
+  country: MyString
+  landline: 1
+  mobile: 1
+  facsimile: MyString
+  email: MyString
+
+two:
+  name: MyString
+  franchisee_id: 1
+  parent_id: 1
+  category: MyString
+  street1: MyString
+  street2: MyString
+  pincode: 1
+  city: MyString
+  state: MyString
+  country: MyString
+  landline: 1
+  mobile: 1
+  facsimile: MyString
+  email: MyString

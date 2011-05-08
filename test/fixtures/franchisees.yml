@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  owner: MyString
+  tin: 1
+  street1: MyString
+  street2: MyString
+  pincode: 1
+  city: MyString
+  state: MyString
+  country: MyString
+  landline: 1
+  mobile: 1
+  facsimile: MyString
+  email: MyString
+
+two:
+  name: MyString
+  owner: MyString
+  tin: 1
+  street1: MyString
+  street2: MyString
+  pincode: 1
+  city: MyString
+  state: MyString
+  country: MyString
+  landline: 1
+  mobile: 1
+  facsimile: MyString
+  email: MyString

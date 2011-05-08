@@ -1,0 +1,12 @@
+<h4>Market Entity details</h4>
+<% marketentity.each do |me| %>
+  <span class='span-2'><b>Name</b></span>
+  <%= me.name %>
+  <br/><br/>
+
+  <div id='<%= "offices_businessunits_div_#{me.id}" %>'>
+    <%= render :partial => 'businessunits/bu_me',
+        :locals => { :businessunit => Businessunit.find_all_by_marketentity_id(me.id) },
+        :layout => false %>
+  </div>
+<% end -%>

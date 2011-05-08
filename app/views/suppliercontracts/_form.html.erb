@@ -1,0 +1,33 @@
+<%= form_for(@suppliercontract) do |f| %>
+  <% if @suppliercontract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@suppliercontract.errors.count, "error") %> prohibited this suppliercontract from being saved:</h2>
+
+      <ul>
+      <% @suppliercontract.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :supplier_id %><br />
+    <%= f.text_field :supplier_id %>
+  </div>
+  <div class="field">
+    <%= f.label :effective_date %><br />
+    <%= f.date_select :effective_date %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount %>
+  </div>
+  <div class="field">
+    <%= f.label :creditperiod %><br />
+    <%= f.text_field :creditperiod %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

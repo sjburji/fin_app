@@ -1,0 +1,27 @@
+<h1>Listing legalentities</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Tin</th>
+    <th>Office</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @legalentities.each do |legalentity| %>
+  <tr>
+    <td><%= legalentity.name %></td>
+    <td><%= legalentity.tin %></td>
+    <td><%= legalentity.office_id %></td>
+    <td><%= link_to 'Show', legalentity %></td>
+    <td><%= link_to 'Edit', edit_legalentity_path(legalentity) %></td>
+    <td><%= link_to 'Destroy', legalentity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Legalentity', new_legalentity_path %>

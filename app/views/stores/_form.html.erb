@@ -1,0 +1,102 @@
+<%= form_for(@store) do |f| %>
+  <% if @store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% @store.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :created_at, :value => Time.zone.today %>
+  <%= f.hidden_field :updated_at, :value => Time.zone.today %>
+  <%= f.hidden_field :created_by, :value => current_user.id.to_s %>
+  <%= f.hidden_field :modified_by, :value => current_user.id.to_s %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :franchisee_id %>
+    <%= radio_button('store', 'franchisee', 0, :checked => true) %>  Company Owned
+    <%= radio_button('store', 'franchisee', 1) %>  Franchisee
+    <br/>
+
+    <%= f.collection_select(:franchisee_id, Franchisee.all, :id, :name,
+      {:include_blank => 'Select Franchisee'}, {:style => 'display:none'}) %>
+  </div>
+  <br/>
+
+  <div class="field">
+    <%= f.label :parent_id %>
+    <%= radio_button('store', 'parent_id', 0, {:checked => true}) %>  Main
+    <%= radio_button('store','parent_id', 1) %>  Satellite
+    <br/>
+
+    <%= f.collection_select(:parent_id, Branch.find_all_by_category('P'), :id, :name,
+      {:include_blank => 'Select Parent Branch'}, {:style => 'display:none'}) %>
+  </div>
+  <br/>
+  
+  <div class="field">
+    <%= f.label :street1 %><br />
+    <%= f.text_field :street1 %>
+  </div>
+  <div class="field">
+    <%= f.label :street2 %><br />
+    <%= f.text_field :street2 %>
+  </div>
+  <div class="field">
+    <%= f.label :pincode %><br />
+    <%= f.text_field :pincode %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :landline %><br />
+    <%= f.text_field :landline %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :facsimile %><br />
+    <%= f.text_field :facsimile %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+
+  <hr/>
+  <div class="span-19">
+    <b>Check Cluster(s) linked to this store : </b><br/><br/>
+    <% for cluster in Cluster.find(:all, :order => 'id') %>
+    <div class="span-6">
+       <span class="span-1"><%= check_box_tag "store[cluster_ids][]", cluster.id, @store.clusters.include?(cluster) %></span>
+       <span class="span-4"><%= cluster.name %></span>
+    </div>
+   <% end %>
+  </div>
+  <hr/>
+
+  <div class="actions">
+    <br/>
+    <%= f.submit %>
+  </div>
+<% end %>

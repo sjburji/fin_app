@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  year: 1
+  month: MyString
+  marketentity_id: 1
+  businessunit_id: 1
+  ledger_id: 1
+  budgeted_amt: 1.5
+  committed_amt: 1.5
+  billed_amt: 1.5
+  paid_amt: 1.5
+
+two:
+  year: 1
+  month: MyString
+  marketentity_id: 1
+  businessunit_id: 1
+  ledger_id: 1
+  budgeted_amt: 1.5
+  committed_amt: 1.5
+  billed_amt: 1.5
+  paid_amt: 1.5

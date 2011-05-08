@@ -13,11 +13,7 @@ AS
     a.branchtype category,
     a.parentbranchid parent_id,
     c.branchname parent_name,
-    c.branchcard card_idcreate or replace view cards as
-select membercardno membership_no,
-branch_id branch_id
-from jbprod.member_branch_xref
-with read only
+    c.branchcard card_id
   FROM jbprod.branch a,
     jbprod.city b,
     jbprod.branch c

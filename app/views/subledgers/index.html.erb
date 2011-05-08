@@ -1,0 +1,27 @@
+<h1>Listing subledgers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Ledger</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subledgers.each do |subledger| %>
+  <tr>
+    <td><%= subledger.name %></td>
+    <td><%= subledger.code %></td>
+    <td><%= subledger.ledger_id %></td>
+    <td><%= link_to 'Show', subledger %></td>
+    <td><%= link_to 'Edit', edit_subledger_path(subledger) %></td>
+    <td><%= link_to 'Destroy', subledger, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subledger', new_subledger_path %>

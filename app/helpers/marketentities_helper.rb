@@ -1,0 +1,2 @@
+module MarketentitiesHelper
+end

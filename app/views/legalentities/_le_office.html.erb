@@ -1,0 +1,16 @@
+<h4>Legal Entity details</h4>
+
+<% legalentity.each do |le| %>
+  <span class='span-2'><b>Name</b></span>
+  <%= le.name %><br/>
+
+  <span class='span-2'><b>Tin</b></span>
+  <%= le.tin %><br/><br/>
+
+  <div id='<%= "offices_marketentities_div_#{le.id}" %>'>
+    <%= render :partial => 'marketentities/me_le',
+        :locals => { :marketentity => Marketentity.find_all_by_legalentity_id(le.id) },
+        :layout => false %>
+  </div>
+
+<% end -%>

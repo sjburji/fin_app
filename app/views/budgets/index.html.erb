@@ -1,0 +1,39 @@
+<h1>Listing budgets</h1>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Month</th>
+    <th>Marketentity</th>
+    <th>Businessunit</th>
+    <th>Ledger</th>
+    <th>Budgeted amt</th>
+    <th>Committed amt</th>
+    <th>Billed amt</th>
+    <th>Paid amt</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @budgets.each do |budget| %>
+  <tr>
+    <td><%= budget.year %></td>
+    <td><%= budget.month %></td>
+    <td><%= budget.marketentity_id %></td>
+    <td><%= budget.businessunit_id %></td>
+    <td><%= budget.ledger_id %></td>
+    <td><%= budget.budgeted_amt %></td>
+    <td><%= budget.committed_amt %></td>
+    <td><%= budget.billed_amt %></td>
+    <td><%= budget.paid_amt %></td>
+    <td><%= link_to 'Show', budget %></td>
+    <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
+    <td><%= link_to 'Destroy', budget, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Budget', new_budget_path %>

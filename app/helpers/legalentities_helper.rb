@@ -1,0 +1,2 @@
+module LegalentitiesHelper
+end

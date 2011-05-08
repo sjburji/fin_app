@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Supplier:</b>
+  <%= @suppliercontract.supplier_id %>
+</p>
+
+<p>
+  <b>Effective date:</b>
+  <%= @suppliercontract.effective_date %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%= @suppliercontract.discount %>
+</p>
+
+<p>
+  <b>Creditperiod:</b>
+  <%= @suppliercontract.creditperiod %>
+</p>
+
+
+<%= link_to 'Edit', edit_suppliercontract_path(@suppliercontract) %> |
+<%= link_to 'Back', suppliercontracts_path %>
