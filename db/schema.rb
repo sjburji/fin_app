@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20110508101506) do
 
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id",    :precision => 38, :scale => 0
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "budgetitems", :force => true do |t|
     t.integer  "budget_id",     :precision => 38, :scale => 0
@@ -210,25 +203,6 @@ ActiveRecord::Schema.define(:version => 20110508101506) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                                                                :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128,                                :default => ""
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :precision => 38, :scale => 0, :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "username"
-  end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "i_users_reset_password_token", :unique => true
 
   create_table "versions", :force => true do |t|
     t.integer  "versioned_id",   :precision => 38, :scale => 0
