@@ -15,7 +15,7 @@ gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'ruby-oci8'
+# gem 'ruby-oci8'
 
 # Use unicorn as the web server
 # gem 'unicorn'
