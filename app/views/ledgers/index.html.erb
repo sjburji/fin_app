@@ -1,27 +1,44 @@
-<h1>Listing ledgers</h1>
+<div class="activity_links">
+  <%= link_to 'Back to Dashboard', dashboard_path %>
+</div>
+<br/>
 
-<table>
-  <tr>
-    <th>Category</th>
-    <th>Code</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h3>Listing Ledgers</h3>
+
+
+<div class="activity_links" style="float: right">
+  <%= link_to 'Add New Ledger?', new_ledger_path %>
+</div>
+<br/><hr/>
 
 <% @ledgers.each do |ledger| %>
-  <tr>
-    <td><%= ledger.category %></td>
-    <td><%= ledger.code %></td>
-    <td><%= ledger.name %></td>
-    <td><%= link_to 'Show', ledger %></td>
-    <td><%= link_to 'Edit', edit_ledger_path(ledger) %></td>
-    <td><%= link_to 'Destroy', ledger, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div>
+
+    <span class='span-2'><b>Name</b></span><%= ledger.name %>
+    <br/>
+    <span class='span-2'><b>Code</b></span><%= ledger.code %>
+    <br/>
+    <span class='span-2'><b>Category</b></span><%= ledger.category.to_i %>
+    <br/>
+
+    <div id="ledgers_det_remove" class="activity_links" style="float: right; padding-left: 5px">
+      <%= link_to 'Hide Details', '', :id => 'ledgers_det_remove_link_' + ledger.id.to_s,
+        :ledger_id => ledger.id, :disabled => 'disabled' %>
+    </div>
+
+    <div id="ledgers_det" class="activity_links" style="float: right; padding-left: 5px">
+      <%= link_to 'Show Details', '', :id => 'ledgers_det_remove_link_' + ledger.id.to_s,
+        :ledger_id => ledger.id %>
+    </div>
+
+    <br/><br/>
+    <div id='<%= "ledgers_det_div_#{ledger.id}" %>' style="display: none;">
+      <%= render :partial => 'subledgers/subledger_details',
+        :locals => { :subledger => Subledger.find_all_by_ledger_id(ledger.id) },
+        :layout => false %>
+    </div>
+    <hr/>
+
+</div>
+    
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Ledger', new_ledger_path %>

@@ -1,47 +1,60 @@
-<h1>Listing suppliers</h1>
+<div class="activity_links">
+  <%= link_to 'Back to Dashboard', dashboard_path %>
+</div>
+<br/>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Contact1</th>
-    <th>Contact2</th>
-    <th>Street1</th>
-    <th>Street2</th>
-    <th>Pincode</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Country</th>
-    <th>Landline</th>
-    <th>Mobile</th>
-    <th>Facsimile</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h3>Listing Suppliers</h3>
+
+<div class="activity_links" style="float: right">
+  <%= link_to 'Add New Supplier?', new_supplier_path %>
+</div>
+<br/><hr/>
 
 <% @suppliers.each do |supplier| %>
-  <tr>
-    <td><%= supplier.name %></td>
-    <td><%= supplier.contact1 %></td>
-    <td><%= supplier.contact2 %></td>
-    <td><%= supplier.street1 %></td>
-    <td><%= supplier.street2 %></td>
-    <td><%= supplier.pincode %></td>
-    <td><%= supplier.city %></td>
-    <td><%= supplier.state %></td>
-    <td><%= supplier.country %></td>
-    <td><%= supplier.landline %></td>
-    <td><%= supplier.mobile %></td>
-    <td><%= supplier.facsimile %></td>
-    <td><%= supplier.email %></td>
-    <td><%= link_to 'Show', supplier %></td>
-    <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
-    <td><%= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div>
+    <span class='span-2'><b>Name</b></span><%= supplier.name %>
+    <br/>
+    <span class='span-2'><b>Contact(s)</b></span>
+    <%= supplier.contact1 %>, <%= supplier.contact2 %>
+    <br/>
+    
+    <span class='span-2'><b>Location</b></span>
+    <%= supplier.street1 %>, 
+    <%= supplier.street2 %>,     
+    <%= supplier.city %>, 
+    <%= supplier.state %>, 
+    <%= supplier.country %> - 
+    <%= supplier.pincode %>
+    <br/>
+    
+    <span class='span-2'><b>Phone</b></span>
+    (L) : <%= supplier.landline %>, (M) : <%= supplier.mobile %>
+    <br/>
+    
+    <span class='span-2'><b>Facsimile</b></span><%= supplier.facsimile %>
+    <br/>
+    
+    <span class='span-2'><b>Email</b></span><%= supplier.email %>
+    <br/><br/>
+
+    <div id="suppliers_det_remove" class="activity_links" style="float: right; padding-left: 5px">
+      <%= link_to 'Hide Details', '', :id => 'suppliers_det_remove_link_' + supplier.id.to_s,
+        :supplier_id => supplier.id, :disabled => 'disabled' %>
+    </div>
+
+    <div id="suppliers_det" class="activity_links" style="float: right; padding-left: 5px">
+      <%= link_to 'Show Details', '', :id => 'suppliers_det_link_' + supplier.id.to_s,
+        :supplier_id => supplier.id %>
+    </div>
+
+    <br/>
+    <div id='<%= "suppliers_det_div_#{supplier.id}" %>' style="display: none;">
+      <%= render :partial => 'suppliercontracts/suppliercontract_details',
+        :locals => { :suppliercontract => Suppliercontract.find_all_by_supplier_id(supplier.id) },
+        :layout => false %>
+    </div>
+    <hr/>
+
+</div>
+    
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Supplier', new_supplier_path %>

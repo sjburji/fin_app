@@ -44,3 +44,84 @@ $('#offices_legalentities_remove a').live('click', function(){
 
    return false;
 });
+
+
+$('#franchisees_det a').live('click', function(){
+   var franchisees_id = $(this).attr('franchisee_id');
+   var franchisees_det_div = '#franchisees_det_div_' + franchisees_id;
+   var hide_link = '#franchisees_det_remove_link_' + franchisees_id;
+   var show_link = '#franchisees_det_link_' + franchisees_id;
+
+   $(show_link).attr('disabled', true);
+   $(hide_link).attr('disabled', false);
+   $(franchisees_det_div).show(1000);
+
+   return false;
+});
+
+$('#franchisees_det_remove a').live('click', function(){
+   var franchisees_id = $(this).attr('franchisee_id');
+   var franchisees_det_div = '#franchisees_det_div_' + franchisees_id;
+   var hide_link = '#franchisees_det_remove_link_' + franchisees_id;
+   var show_link = '#franchisees_det_link_' + franchisees_id;
+
+   $(show_link).attr('disabled', false);
+   $(hide_link).attr('disabled', true);
+   $(franchisees_det_div).hide(400);
+
+   return false;
+});
+
+
+$('#ledgers_det a').live('click', function(){
+   var ledger_id = $(this).attr('ledger_id');
+   var ledgers_det_div = '#ledgers_det_div_' + ledger_id;
+   var hide_link = '#ledgers_det_remove_link_' + ledger_id;
+   var show_link = '#ledgers_det_link_' + ledger_id;
+
+   $(show_link).attr('disabled', true);
+   $(hide_link).attr('disabled', false);
+   $(ledgers_det_div).show(1000);
+
+   return false;
+});
+
+$('#ledgers_det_remove a').live('click', function(){
+   var ledger_id = $(this).attr('ledger_id');
+   var ledgers_det_div = '#ledgers_det_div_' + ledger_id;
+   var hide_link = '#ledgers_det_remove_link_' + ledger_id;
+   var show_link = '#ledgers_det_link_' + ledger_id;
+
+   $(show_link).attr('disabled', false);
+   $(hide_link).attr('disabled', true);
+   $(ledgers_det_div).hide(400);
+
+   return false;
+});
+
+
+$('#suppliers_det a').live('click', function(){
+   var supplier_id = $(this).attr('supplier_id');
+   var suppliers_det_div = '#suppliers_det_div_' + supplier_id;
+   var hide_link = '#suppliers_det_remove_link_' + supplier_id;
+   var show_link = '#suppliers_det_link_' + supplier_id;
+
+   $(show_link).attr('disabled', true);
+   $(hide_link).attr('disabled', false);
+   $(suppliers_det_div).show(1000);
+
+   return false;
+});
+
+$('#suppliers_det_remove a').live('click', function(){
+   var supplier_id = $(this).attr('supplier_id');
+   var suppliers_det_div = '#suppliers_det_div_' + supplier_id;
+   var hide_link = '#suppliers_det_remove_link_' + supplier_id;
+   var show_link = '#suppliers_det_link_' + supplier_id;
+
+   $(show_link).attr('disabled', false);
+   $(hide_link).attr('disabled', true);
+   $(suppliers_det_div).hide(400);
+
+   return false;
+});

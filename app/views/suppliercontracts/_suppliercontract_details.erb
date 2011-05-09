@@ -1,0 +1,20 @@
+<h4>Supplier Contract Details</h4>
+
+<% suppliercontract.each do |sc| %>
+  <span class='span-3'><b>Supplier</b></span>
+  <%= sc.supplier.name %>
+  <br/>
+
+  <span class='span-3'><b>Effective Date</b></span>
+  <%= sc.effective_date.to_date.strftime('%d %B %Y') %>
+  <br/>
+
+  <span class='span-3'><b>Discount</b></span>
+  <%= sc.discount %>
+  <br/>
+
+  <span class='span-3'><b>Credit Period</b></span>
+  <%= sc.creditperiod %>
+  <br/>
+  
+<% end -%>

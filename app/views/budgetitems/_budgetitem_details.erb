@@ -1,0 +1,40 @@
+<h4>Budget Item Details</h4>
+
+<% budgetitem.each do |bi| %>
+
+  <span class='span-3'>
+    <b>Budget</b>
+  </span><%= bi.budget_id %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Subledger</b>
+  </span><%= bi.subledger.name %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Budgeted pct</b>
+  </span><%= bi.budgeted_pct %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Budgeted amt</b>
+  </span><%= bi.budgeted_amt %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Committed amt</b>
+  </span><%= bi.committed_amt %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Billed amt</b>
+  </span><%= bi.billed_amt %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Paid amt</b>    
+  </span><%= bi.paid_amt %>
+  <br/>
+
+<% end -%>

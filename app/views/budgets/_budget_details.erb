@@ -1,0 +1,62 @@
+<h4>Budget Details</h4>
+
+<% budget.each do |bg| %>
+  <span class='span-3'>
+    <b>Year</b>
+  </span><%= bg.year %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Month</b>
+  </span><%= Date::MONTHNAMES[bg.month.to_i] %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Marketentity</b>
+  </span><%= bg.marketentity.name %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Businessunit</b>
+  </span><%= bg.businessunit.name %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Ledger</b>
+  </span><%= bg.ledger.name %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Budgeted amt</b>
+  </span><%= bg.budgeted_amt %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Committed amt</b>
+  </span><%= bg.committed_amt %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Billed amt</b>
+  </span><%= bg.billed_amt %>
+  <br/>
+
+  <span class='span-3'>
+    <b>Paid amt</b>
+  </span><%= bg.paid_amt %>
+
+  <br/><br/>
+  <div id='<%= "budget_budgetitems_div_#{bg.id}" %>'>
+      <%= render :partial => 'budgetitems/budgetitem_details',
+        :locals => { :budgetitem => Budgetitem.find_all_by_budget_id(bg.id) },
+        :layout => false %>
+  </div>
+
+  <br/><br/>
+  <div id='<%= "budget_marketentities_div_#{bg.id}" %>'>
+    <%= render :partial => 'marketentities/me_le',
+        :locals => { :marketentity => Marketentity.find_all_by_legalentity_id(bg.ledger_id) },
+        :layout => false %>
+  </div>
+
+<% end -%>

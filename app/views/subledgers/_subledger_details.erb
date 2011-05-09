@@ -1,0 +1,25 @@
+<h4>Sub Ledger Details</h4>
+
+<% subledger.each do |sl| %>
+  <span class='span-2'>
+    <b>Name</b>    
+  </span><%= sl.name %>
+  <br/>
+
+  <span class='span-2'>
+    <b>Code</b>    
+  </span><%= sl.code %>
+  <br/>
+
+  <span class='span-2'>
+    <b>Ledger</b>    
+  </span><%= sl.ledger.name %>
+  <br/><br/>
+
+  <div id='<%= "ledgers_budget_div_#{sl.id}" %>'>
+      <%= render :partial => 'budgets/budget_details',
+        :locals => { :budget => Budget.find_all_by_ledger_id(sl.ledger_id) },
+        :layout => false %>
+  </div>
+  
+<% end -%>
